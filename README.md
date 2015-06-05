@@ -1,3 +1,3 @@
 # Project Euler
 
-Problems solved from http://projecteuler.net/
+My Project Euler solutions http://projecteuler.net/
