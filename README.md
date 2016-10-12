@@ -1,3 +1,3 @@
 # Project Euler
 
-My Project Euler solutions http://projecteuler.net/
+My solutions for [Project Euler](http://projecteuler.net/)
