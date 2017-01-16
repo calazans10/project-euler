@@ -1,0 +1,11 @@
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 99
