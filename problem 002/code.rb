@@ -28,7 +28,7 @@ def fibonacci_sequence(maxi = 4 * 10**16)
   sequence
 end
 
-def solution_fast(n)
+def fast_solution(n)
   fibonacci_sequence.select { |item| item <= n }.inject(0, &:+)
 end
 
@@ -36,14 +36,14 @@ require 'minitest/autorun'
 
 class Tests < Minitest::Test
   def test_input_example1
-    assert_equal 10, solution_fast(10)
+    assert_equal 10, fast_solution(10)
   end
 
   def test_input_example2
-    assert_equal 44, solution_fast(100)
+    assert_equal 44, fast_solution(100)
   end
 
   def test_input_example3
-    assert_equal 4_613_732, solution_fast(4_000_000)
+    assert_equal 4_613_732, fast_solution(4_000_000)
   end
 end

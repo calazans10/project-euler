@@ -10,7 +10,7 @@ def arithmetic_sum_of_multiples(series, multiple)
   multiple * n * (n + 1) / 2
 end
 
-def solution_fast(number)
+def fast_solution(number)
   arithmetic_sum_of_multiples(number, 3) +
     arithmetic_sum_of_multiples(number, 5) -
     arithmetic_sum_of_multiples(number, 15)
@@ -20,14 +20,14 @@ require 'minitest/autorun'
 
 class Tests < Minitest::Test
   def test_input_example1
-    assert_equal 23, solution_fast(10)
+    assert_equal 23, fast_solution(10)
   end
 
   def test_input_example2
-    assert_equal 2318, solution_fast(100)
+    assert_equal 2318, fast_solution(100)
   end
 
   def test_input_example3
-    assert_equal 233_168, solution_fast(1000)
+    assert_equal 233_168, fast_solution(1000)
   end
 end

@@ -17,7 +17,7 @@ def solution(n)
 end
 
 # https://www.hackerrank.com/contests/projecteuler/challenges/euler003/editorial
-def solution_fast(n)
+def fast_solution(n)
   maxi = -1
   limit = Math.sqrt(n).to_i
 
@@ -37,18 +37,18 @@ require 'minitest/autorun'
 
 class Tests < Minitest::Test
   def test_example_input1
-    assert_equal 5, solution_fast(10)
+    assert_equal 5, fast_solution(10)
   end
 
   def test_example_input2
-    assert_equal 17, solution_fast(17)
+    assert_equal 17, fast_solution(17)
   end
 
   def test_example_input3
-    assert_equal 29, solution_fast(13_195)
+    assert_equal 29, fast_solution(13_195)
   end
 
   def test_example_input4
-    assert_equal 6857, solution_fast(600_851_475_143)
+    assert_equal 6857, fast_solution(600_851_475_143)
   end
 end
