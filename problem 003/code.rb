@@ -1,19 +1,21 @@
-def primes(n)
-  index = 0
+def sieve(n)
+  primes = (0..n).to_a
+  primes[0] = primes[1] = nil
   limit = Math.sqrt(n).ceil
-  numbers = (2..n).to_a
 
-  while limit >= numbers[index]
-    prime = numbers[index]
-    numbers = numbers.select { |number| number == prime || (number % prime).nonzero? }
-    index += 1
+  (2..limit).each do |i|
+    next unless primes[i]
+
+    (i**2..n).step(i) do |j|
+      primes[j] = nil
+    end
   end
 
-  numbers
+  primes.select { |item| item }
 end
 
 def solution(n)
-  primes(n).select { |item| (n % item).zero? }.max
+  sieve(n).select { |item| (n % item).zero? }.max
 end
 
 # https://www.hackerrank.com/contests/projecteuler/challenges/euler003/editorial

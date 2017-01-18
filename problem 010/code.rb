@@ -1,5 +1,4 @@
-def sieve
-  n = 200_000
+def sieve(n)
   primes = (0..n).to_a
   primes[0] = primes[1] = nil
   limit = Math.sqrt(n).ceil
@@ -16,21 +15,21 @@ def sieve
 end
 
 def solution(n)
-  sieve[n - 1]
+  sieve(n).inject(0, &:+)
 end
 
 require 'minitest/autorun'
 
 class Tests < Minitest::Test
   def test_example_input1
-    assert_equal 5, solution(3)
+    assert_equal 10, solution(5)
   end
 
   def test_example_input2
-    assert_equal 13, solution(6)
+    assert_equal 17, solution(10)
   end
 
   def test_example_input3
-    assert_equal 104_743, solution(10_001)
+    assert_equal 142_913_828_922, solution(2_000_000)
   end
 end
