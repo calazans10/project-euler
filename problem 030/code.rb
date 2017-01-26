@@ -1,10 +1,8 @@
 def solution
   total = 0
-  fifth_powers = {}
-  10.times { |n| fifth_powers[n] = n**5 }
 
   (10..355_000).each do |n|
-    sum = n.to_s.chars.inject(0) { |a, e| a + fifth_powers[e.to_i] }
+    sum = n.to_s.chars.inject(0) { |a, e| a + e.to_i**5 }
     next unless sum == n
     total += n
   end
