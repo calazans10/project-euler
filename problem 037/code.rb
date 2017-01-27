@@ -25,7 +25,8 @@ def sieve
 end
 
 def truncable?(sieve, index)
-  sieve[index] && index > 7 &&
+  sieve[index] &&
+    index > 7 &&
     truncable_from_left?(sieve, index) &&
     truncable_from_right?(sieve, index)
 end
