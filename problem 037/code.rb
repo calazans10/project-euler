@@ -1,20 +1,9 @@
 def solution
-  primes = sieve
-  total = 0
-  count = 0
-
-  (4..primes.length - 1).each do |i|
-    break if count == 11
-    next unless truncable?(primes, primes[i])
-    total += primes[i]
-    count += 1
-  end
-
-  total
+  sieve.inject(:+)
 end
 
 def sieve
-  n = 740_000
+  n = 1_000_000
   sieve = Array.new(n + 1) { true }
   sieve[0] = sieve[1] = false
   i = 2
@@ -32,15 +21,30 @@ def sieve
     i += 1
   end
 
-  sieve.each_index.select { |index| index if sieve[index] }
+  sieve.each_index.select { |index| index if truncable?(sieve, index) }
 end
 
-def truncable?(primes, n)
-  n = n.to_s
+def truncable?(sieve, index)
+  sieve[index] && index > 7 &&
+    truncable_from_left?(sieve, index) &&
+    truncable_from_right?(sieve, index)
+end
 
-  n.chars.each_index do |i|
-    next if primes.include?(n[i..n.length - 1].to_i) && primes.include?(n[0..n.length - 1 - i].to_i)
-    return false
+def truncable_from_left?(sieve, number)
+  number = number.to_s
+
+  number.chars.each_index do |i|
+    return false unless sieve[number[i..number.length - 1].to_i]
+  end
+
+  true
+end
+
+def truncable_from_right?(sieve, number)
+  number = number.to_s
+
+  number.chars.each_index do |i|
+    return false unless sieve[number[0..number.length - 1 - i].to_i]
   end
 
   true
