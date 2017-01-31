@@ -7,7 +7,7 @@ def solution(n)
     end
   end
 
-  arr.uniq.sort.length
+  arr.uniq.length
 end
 
 require 'minitest/autorun'
